@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Dog Breed Classifier{% endblock %}
+
+{% block navbar %}
+  {{nav.mynavbar.render()}}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      
+    <h3>Upload</h3>
+
+    <hr>
+    <form action="/" method="POST" enctype="multipart/form-data">
+
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01" name="user_file">
+        </div>
+      </div>
+
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+  </div>
+{% endblock %}

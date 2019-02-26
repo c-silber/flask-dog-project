@@ -1,0 +1,13 @@
+boto3
+botocore
+Flask
+Jinja2
+python-dateutil
+s3transfer
+six
+Werkzeug
+flask_bootstrap
+arrow
+flask_nav
+requests
+gunicorn

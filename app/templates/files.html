@@ -1,0 +1,48 @@
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="en"{% endblock %}
+{% block title %}S3 Object List{% endblock %}
+
+{% block navbar %}
+  {{nav.mynavbar.render()}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="col-12-xs">
+
+      <h3>Images</h3>
+
+      <hr>
+
+      {% for file_batch in files | batch(3) %}
+
+      <div class="row">
+
+        {% for key in file_batch %}
+
+            <div class="col-md-4">
+               <div class="thumbnail">
+                 <a href="https://s3.amazonaws.com/{{my_bucket.name}}/{{key}}">
+                   <img src="https://s3.amazonaws.com/{{my_bucket.name}}/{{key}}" alt={{key}} style="width:350px; height:300px; object-fit: cover;">
+                   <div class="caption" align=center>
+                     {% if files[key].TagSet|length > 0 %}
+                     <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
+                       <p>{{files[key].TagSet}}</p>
+                     </form>
+                      {% else %}
+                      <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
+                        <button type="submit" class="btn btn-info" id={{key}}>Get Breed</button>
+                      </form>
+                      {% endif %}
+                   </div>
+                 </a>
+               </div>
+             </div>
+
+        {% endfor %}
+        </div>
+      {% endfor %}
+
+  </div>
+</div>
+{% endblock %}
