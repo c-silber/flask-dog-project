@@ -27,7 +27,8 @@
                    <div class="caption" align=center>
                      {% if files[key].TagSet|length > 0 %}
                      <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
-                       <p>{{files[key].TagSet}}</p>
+                       <p>Type: {{files[key].TagSet[0].Value}}</p>
+                       <p>Breed: {{files[key].TagSet[1].Value}}</p>
                      </form>
                       {% else %}
                       <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
