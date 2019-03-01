@@ -54,6 +54,7 @@ def getDogBreedFromUrl(id):
     params = {'imagePath':url}
     print(params)
 
+    #apiUrl = 'http://0.0.0.0:8080/getDogBreed'
     apiUrl = 'http://172.104.212.211:8000/getDogBreed'
 
     r = requests.post(url=apiUrl, params=params)

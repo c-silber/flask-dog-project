@@ -24,19 +24,17 @@
                <div class="thumbnail">
                  <a href="https://s3.amazonaws.com/{{my_bucket.name}}/{{key}}">
                    <img src="https://s3.amazonaws.com/{{my_bucket.name}}/{{key}}" alt={{key}} style="width:350px; height:300px; object-fit: cover;">
+                   </a>
                    <div class="caption" align=center>
                      {% if files[key].TagSet|length > 0 %}
-                     <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
                        <p>Type: {{files[key].TagSet[0].Value}}</p>
                        <p>Breed: {{files[key].TagSet[1].Value}}</p>
-                     </form>
                       {% else %}
                       <form method="POST" method="POST" enctype="multipart/form-data"  action="{{url_for('getDogBreedFromUrl', id=key)}}">
                         <button type="submit" class="btn btn-info" id={{key}}>Get Breed</button>
                       </form>
                       {% endif %}
                    </div>
-                 </a>
                </div>
              </div>
 
